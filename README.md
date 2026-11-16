@@ -7,6 +7,7 @@
 Find dangerous MCP servers, hardcoded credentials, exposed host paths, and prompt-injection payloads before they reach production.
 
 [![CI](https://github.com/KynSec/AI-Guard-CLI/actions/workflows/ci.yml/badge.svg)](https://github.com/KynSec/AI-Guard-CLI/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/ai-guard.svg)](https://pypi.org/project/ai-guard/)
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
@@ -45,18 +46,22 @@ No telemetry. No network calls. No secrets in reports.
 
 ## Quickstart
 
+### Install from PyPI
+
+AI-Guard-CLI is distributed as `ai-guard` on PyPI:
+
+```bash
+pipx install ai-guard
+# or
+python -m pip install ai-guard
+```
+
 ### Install from source
 
 ```bash
 git clone https://github.com/KynSec/AI-Guard-CLI.git
 cd AI-Guard-CLI
 python -m pip install .
-```
-
-Or install in an isolated environment with pipx:
-
-```bash
-pipx install git+https://github.com/KynSec/AI-Guard-CLI.git
 ```
 
 Verify the installation:
@@ -415,6 +420,17 @@ ruff format --check .
 ```
 
 CI runs the test suite on Python 3.10, 3.11, and 3.12, checks formatting, and lints with Ruff.
+
+### Releasing
+
+AI-Guard publishes to PyPI through GitHub Actions and PyPI Trusted Publishing. Configure a PyPI trusted publisher for `ai-guard` with workflow `release.yml` and environment `pypi`, then bump `__version__`, commit, and push a `vX.Y.Z` tag:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The release workflow builds the wheel and source distribution, validates them with `twine`, and publishes them without storing a PyPI token.
 
 ### Adding a rule
 
