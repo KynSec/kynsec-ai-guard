@@ -1,4 +1,4 @@
-# AI-Guard-CLI
+# KynSec AI Guard
 
 <div align="center">
 
@@ -6,12 +6,12 @@
 
 Find dangerous MCP servers, hardcoded credentials, exposed host paths, and prompt-injection payloads before they reach production.
 
-[![CI](https://github.com/KynSec/AI-Guard-CLI/actions/workflows/ci.yml/badge.svg)](https://github.com/KynSec/AI-Guard-CLI/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/ai-guard.svg)](https://pypi.org/project/ai-guard/)
+[![CI](https://github.com/KynSec/kynsec-ai-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/KynSec/kynsec-ai-guard/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/kynsec-ai-guard.svg)](https://pypi.org/project/kynsec-ai-guard/)
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
-[![GitHub stars](https://img.shields.io/github/stars/KynSec/AI-Guard-CLI?style=social)](https://github.com/KynSec/AI-Guard-CLI/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/KynSec/kynsec-ai-guard?style=social)](https://github.com/KynSec/kynsec-ai-guard/stargazers)
 
 [Why AI-Guard?](#why-ai-guard) · [Quickstart](#quickstart) · [Usage](#usage) · [Rules](#rules-reference) · [CI integration](#github-actions--sarif) · [Architecture](#architecture) · [Contributing](#contributing)
 
@@ -21,7 +21,7 @@ Find dangerous MCP servers, hardcoded credentials, exposed host paths, and promp
 
 AI agent configuration is executable configuration. An MCP server entry can launch a shell, mount the host filesystem, or expose an unauthenticated network listener. A system prompt can instruct an agent to hide actions from its user. A dotfile can contain a live cloud key.
 
-AI-Guard-CLI is a fast, offline, read-only static analyzer for that entire surface:
+KynSec AI Guard is a fast, offline, read-only static analyzer for that entire surface:
 
 - Claude Desktop, Claude Code, Cline, Cursor, Windsurf, OpenCode, and VS Code MCP configuration
 - Model Context Protocol (MCP) server definitions
@@ -48,19 +48,19 @@ No telemetry. No network calls. No secrets in reports.
 
 ### Install from PyPI
 
-AI-Guard-CLI is distributed as `ai-guard` on PyPI:
+KynSec AI Guard is distributed as `kynsec-ai-guard` on PyPI:
 
 ```bash
-pipx install ai-guard
+pipx install kynsec-ai-guard
 # or
-python -m pip install ai-guard
+python -m pip install kynsec-ai-guard
 ```
 
 ### Install from source
 
 ```bash
-git clone https://github.com/KynSec/AI-Guard-CLI.git
-cd AI-Guard-CLI
+git clone https://github.com/KynSec/kynsec-ai-guard.git
+cd kynsec-ai-guard
 python -m pip install .
 ```
 
@@ -271,7 +271,7 @@ Stable, versioned JSON with the tool version, target, timestamp, summary, findin
 ```json
 {
   "schema_version": "1.0",
-  "tool": { "name": "AI-Guard-CLI", "version": "0.1.0" },
+  "tool": { "name": "KynSec AI Guard", "version": "0.1.0" },
   "summary": {
     "files_scanned": 3,
     "findings_total": 4,
@@ -295,7 +295,7 @@ ai-guard scan . --format sarif --output ai-guard.sarif
 Upload findings to the repository Security tab:
 
 ```yaml
-name: AI Guard
+name: KynSec AI Guard
 
 on:
   push:
@@ -317,7 +317,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install AI-Guard
-        run: python -m pip install git+https://github.com/KynSec/AI-Guard-CLI.git
+        run: python -m pip install git+https://github.com/KynSec/kynsec-ai-guard.git
 
       - name: Generate SARIF
         run: ai-guard scan . --format sarif --output ai-guard.sarif --min-severity MEDIUM
@@ -402,8 +402,8 @@ tests/
 ## Development
 
 ```bash
-git clone https://github.com/KynSec/AI-Guard-CLI.git
-cd AI-Guard-CLI
+git clone https://github.com/KynSec/kynsec-ai-guard.git
+cd kynsec-ai-guard
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
@@ -423,7 +423,7 @@ CI runs the test suite on Python 3.10, 3.11, and 3.12, checks formatting, and li
 
 ### Releasing
 
-AI-Guard publishes to PyPI through GitHub Actions and PyPI Trusted Publishing. Configure a PyPI trusted publisher for `ai-guard` with workflow `release.yml` and environment `pypi`, then bump `__version__`, commit, and push a `vX.Y.Z` tag:
+KynSec AI Guard publishes to PyPI through GitHub Actions and PyPI Trusted Publishing. Configure a PyPI trusted publisher for `kynsec-ai-guard` with workflow `release.yml` and environment `pypi`, then bump `__version__`, commit, and push a `vX.Y.Z` tag:
 
 ```bash
 git tag v0.1.0
@@ -466,7 +466,7 @@ AI-Guard is a static heuristic analyzer. It reduces risk; it does not prove an a
 
 ## Acknowledgements
 
-AI-Guard's rule design is informed by the OWASP Top 10 for LLM Applications, MITRE CWE, SARIF, and the excellent Python open-source ecosystem: Typer, Rich, Pydantic, PyYAML, and pytest.
+KynSec AI Guard's rule design is informed by the OWASP Top 10 for LLM Applications, MITRE CWE, SARIF, and the excellent Python open-source ecosystem: Typer, Rich, Pydantic, PyYAML, and pytest.
 
 ## License
 

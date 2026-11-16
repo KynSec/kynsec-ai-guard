@@ -18,7 +18,7 @@ def test_version_command() -> None:
     result = runner.invoke(app, ["--version"])
 
     assert result.exit_code == 0
-    assert "AI-Guard-CLI" in result.output
+    assert "KynSec AI Guard" in result.output
 
 
 def test_rules_command_lists_catalog() -> None:
@@ -40,7 +40,7 @@ def test_scan_json_output_and_finding_exit_code(tmp_path) -> None:
 
     assert result.exit_code == 1
     payload = json.loads(result.stdout)
-    assert payload["tool"]["name"] == "AI-Guard-CLI"
+    assert payload["tool"]["name"] == "KynSec AI Guard"
     assert any(finding["rule_id"] == "MCP001" for finding in payload["findings"])
 
 
@@ -90,7 +90,7 @@ def test_scan_sarif_output(tmp_path) -> None:
     assert result.exit_code == 1
     payload = json.loads(result.stdout)
     assert payload["version"] == "2.1.0"
-    assert payload["runs"][0]["tool"]["driver"]["name"] == "AI-Guard-CLI"
+    assert payload["runs"][0]["tool"]["driver"]["name"] == "KynSec AI Guard"
     assert payload["runs"][0]["results"]
 
 

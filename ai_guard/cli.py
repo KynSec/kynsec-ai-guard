@@ -1,4 +1,4 @@
-"""Command-line interface for AI-Guard-CLI."""
+"""Command-line interface for KynSec AI Guard."""
 
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ stderr = Console(stderr=True)
 
 def _version_callback(value: bool) -> None:
     if value:
-        typer.echo(f"AI-Guard-CLI {__version__}")
+        typer.echo(f"KynSec AI Guard {__version__}")
         raise typer.Exit(code=ExitCode.OK)
 
 
@@ -64,7 +64,7 @@ def main(
         help="Show the AI-Guard version and exit.",
     ),
 ) -> None:
-    """AI-Guard-CLI - security auditing for the local AI stack."""
+    """KynSec AI Guard - security auditing for the local AI stack."""
 
 
 @app.command()

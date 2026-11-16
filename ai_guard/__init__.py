@@ -1,4 +1,4 @@
-"""AI-Guard-CLI: security auditing for local AI agent configurations."""
+"""KynSec AI Guard: security auditing for local AI agent configurations."""
 
 from __future__ import annotations
 

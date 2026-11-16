@@ -115,7 +115,7 @@ def to_json(result: ScanResult) -> str:
 
     payload = {
         "schema_version": "1.0",
-        "tool": {"name": "AI-Guard-CLI", "version": __version__},
+        "tool": {"name": "KynSec AI Guard", "version": __version__},
         "target": result.target,
         "generated_at": result.generated_at.isoformat(),
         "summary": result.summary(),
@@ -187,10 +187,10 @@ def to_sarif(result: ScanResult) -> str:
             {
                 "tool": {
                     "driver": {
-                        "name": "AI-Guard-CLI",
+                        "name": "KynSec AI Guard",
                         "organization": "KynSec",
                         "version": __version__,
-                        "informationUri": "https://github.com/KynSec/AI-Guard-CLI",
+                        "informationUri": "https://github.com/KynSec/kynsec-ai-guard",
                         "rules": rules,
                     }
                 },

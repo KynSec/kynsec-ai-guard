@@ -1,4 +1,4 @@
-"""Built-in security rules shipped with AI-Guard-CLI."""
+"""Built-in security rules shipped with KynSec AI Guard."""
 
 from __future__ import annotations
 

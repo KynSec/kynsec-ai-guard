@@ -3,7 +3,7 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ai-guard"
+name = "kynsec-ai-guard"
 description = "Security auditor for local AI agent configurations, MCP servers, system prompts, and LLM deployment files."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -43,11 +43,11 @@ dev = [
 ai-guard = "ai_guard.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/KynSec/AI-Guard-CLI"
-Repository = "https://github.com/KynSec/AI-Guard-CLI"
-Issues = "https://github.com/KynSec/AI-Guard-CLI/issues"
-Changelog = "https://github.com/KynSec/AI-Guard-CLI/releases"
-PyPI = "https://pypi.org/project/ai-guard/"
+Homepage = "https://github.com/KynSec/kynsec-ai-guard"
+Repository = "https://github.com/KynSec/kynsec-ai-guard"
+Issues = "https://github.com/KynSec/kynsec-ai-guard/issues"
+Changelog = "https://github.com/KynSec/kynsec-ai-guard/releases"
+PyPI = "https://pypi.org/project/kynsec-ai-guard/"
 
 [tool.setuptools.dynamic]
 version = { attr = "ai_guard.__version__" }
